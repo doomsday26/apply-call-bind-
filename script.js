@@ -1,28 +1,20 @@
-let nums={t:4};
-let fcn = function(a){
-   return  this.t+a
-}
-//call
-console.log(fcn.call(nums,5));
+//currying
 
-//apply
-function fcn3(a,b){
-return this.t+a+b
-}
-let k=[7,8]
-console.log( fcn3.apply(nums,k));
+// let multiply= function(x,y){
+//     console.log(x*y);
+// }
+// let multiplyByTwo=multiply.bind(this,2);
+// multiplyByTwo(3);
 
-//bind
-let m= fcn.bind(nums);
-console.log(  m(4));
+// let multiplyByThree =multiply.bind(this,3);
+// multiplyByThree(5);
 
 
-//
-let student={age:20};
-
-function printAge(){
-    console.log(this.age);
-}
-
-let printAgeOfStudent = printAge.bind(student);
-printAgeOfStudent();
+//method 2, closure
+  let multiply= function(x){
+    return function(y){
+        console.log(x*y);
+    }
+  }
+  let multiplyByTwo= multiply(2);
+  multiplyByTwo(3);
